@@ -1,0 +1,95 @@
+{
+  "database": {
+    "name": "WCWarehouseDashboard",
+    "uri": "mongodb://172.31.0.5/WCWarehouseDashboard",
+    "options": {
+              "host": "172.31.0.5",
+              "pool": { "maxConnections": 5, "maxIdleTime": 30},
+              "logging": false
+               },
+    "models": [
+                {   
+                    "name": "inventory",
+                    "tablename": "warehouse_inventory",
+                    "fields": []
+                },
+                {   
+                    "name": "warehouse",
+                    "tablename": "warehouse",
+                    "fields": []
+                },
+                {   
+                    "name": "item",
+                    "tablename": "item",
+                    "fields": []
+                },
+                {
+                  "name":"order",
+                  "tablename":"warehouse_order",
+                  "fields":[]
+                },
+                {
+                  "name":"purchaseorder",
+                  "tablename":"purchaseorder",
+                  "fields":[]
+                },
+                {
+                  "name":"notification",
+                  "tablename":"notification",
+                  "fields":[]
+                },
+                {
+                  "name":"alert",
+                  "tablename":"alert",
+                  "fields":[{"Alert_Id":"Number","Ack":"Boolean"}]
+                },
+                {
+                  "name":"dashboard",
+                  "tablename":"dbdetail",
+                  "fields":[{ "templatename": "string", "widgets": "object"}]
+                },
+                {
+                  "name":"dbmaster",
+                  "tablename":"dbmaster",
+                  "fields":[]
+                },
+                {
+                  "name":"asn",
+                  "tablename":"asn",
+                  "fields":[]
+                },
+                {
+                  "name":"picktask",
+                  "tablename":"picktask",
+                  "fields":[]
+                },
+                {
+                  "name":"repltask",
+                  "tablename":"repltask",
+                  "fields":[]
+                },
+                {
+                  "name":"puttask",
+                  "tablename":"puttask",
+                  "fields":[]
+                },
+                {
+                  "name":"so",
+                  "tablename":"salesorder",
+                  "fields":[]
+                }
+              ]
+    },
+
+    "mail": {
+    "name": "mailclient",
+    "host": "blr-outlook.wipro.com",
+    "username": "",
+    "password": ""
+    },
+    
+    "ldap": {
+      "name": "ldapclient",
+      "url": "ldap://127.0.0.1:389"
+    }
+}
