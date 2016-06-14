@@ -47,7 +47,7 @@ node {
   withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '146ff225-d9c5-4466-9ae0-3ff4c646ff30', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) 
   {
       //sh("git tag -a ${env.BUILD_NUMBER}  -m 'Jenkins'")
-      sh("git tag -a ${tag_value}  -m 'Jenkins'")
+      sh("git tag -a dashboard_${tag_value}_${env.BUILD_NUMBER}  -m 'Jenkins'")
       sh('git push https://"${GIT_USERNAME}":"${GIT_PASSWORD}"@github.com/snyamars/wcw_micro_dashboard.git --tags')
   }
   
@@ -61,6 +61,7 @@ stage 'docker build'
 
  
  stage 'notifyKubernetes'
-   sh  "curl -H 'Content-Type: application/json' -X POST -d '{'id': 'wcw-dash','application': 'Warehouse-Application','accesspoint': 'http://172.31.0.233:8080','containers': [{'name': 'mongo', 'replicas': 1, 'cpu': 1100, 'memory': '170M', 'port': 30071},        {'name': 'node', 'replicas': 1, 'cpu': 1100, 'memory': '500M', 'port': 30066, 'image': 'snyamars007/node_dashboard'} ]}' http://54.237.219.53:3306/step3"
+   //sh  "curl -H 'Content-Type: application/json' -X POST -d '{'id': 'wcw-dash','application': 'Warehouse-Application','accesspoint': 'http://172.31.0.233:8080','containers': [{'name': 'mongo', 'replicas': 1, 'cpu': 1100, 'memory': '170M', 'port': 30071},        {'name': 'node', 'replicas': 1, 'cpu': 1100, 'memory': '500M', 'port': 30066, 'image': 'snyamars007/node_dashboard'} ]}' http://54.237.219.53:3306/step3"
+   sh 'curl -vvv -X POST -d @dashFile -H "Content-Type: application/json" http://54.237.219.53:3306/step3'
  
 }//end of node
