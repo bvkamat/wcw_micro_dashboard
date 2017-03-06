@@ -1,9 +1,9 @@
 {
   "database": {
     "name": "WCWarehouseDashboard",
-    "uri": "mongodb://172.31.0.5/WCWarehouseDashboard",
+    "uri": "mongodb://52.202.176.242:30075/WCWarehouseDashboard",
     "options": {
-              "host": "172.31.0.5",
+              "host": "52.202.176.242",
               "pool": { "maxConnections": 5, "maxIdleTime": 30},
               "logging": false
                },
