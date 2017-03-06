@@ -1,5 +1,5 @@
 {
-    "servicename": "node_dashboard",
+    "servicename": "wcw-dash",
     "component": "nodejs",
     "project": "coe",
     "projectbpid": 218,
