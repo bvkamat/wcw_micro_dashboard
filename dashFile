@@ -1,6 +1,9 @@
 {
     "id": "node_dashboard",
-    "application": "Warehouse-Application",
+    "component": "nodejs",
+    "project": "coe",
+    "projectbpid": 218,
+    "name": "Warehouse-Application",
     "accesspoint": "http://52.2.195.188:8080",
     "containers": [
         {"name": "mongo", "replicas": 1, "cpu": 1100, "memory": "170M", "port": 30071},
