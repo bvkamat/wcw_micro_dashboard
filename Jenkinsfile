@@ -4,6 +4,7 @@ node {
    stage 'Git Checkout'
 
    // Get some code from a GitHub repository
+   // demo the microservice CI CD flow...
 
    
    checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'PerBuildTag']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '146ff225-d9c5-4466-9ae0-3ff4c646ff30', url: 'https://github.com/snyamars/wcw_micro_dashboard.git']]]
