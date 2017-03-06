@@ -33,11 +33,11 @@ node {
   def word1 = "warfile=${fileName}"
   echo "${word1}"
   
-  def targetIPAddress = "${targetIPAddress}"
-  echo "${targetIPAddress}"
+  //def targetIPAddress = "${targetIPAddress}"
+  //echo "${targetIPAddress}"
   
-  def tag_value = "${tag_value}"
-  echo "${tag_value}"
+  //def tag_value = "${tag_value}"
+  //echo "${tag_value}"
   
   
   def artifactLocation ="/var/lib/jenkins/workspace/${env.JOB_NAME}/wcw_micro_dashboard"
@@ -47,7 +47,8 @@ node {
   withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '146ff225-d9c5-4466-9ae0-3ff4c646ff30', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) 
   {
       //sh("git tag -a ${env.BUILD_NUMBER}  -m 'Jenkins'")
-      sh("git tag -a dashboard_${tag_value}_${env.BUILD_NUMBER}  -m 'Jenkins'")
+      //sh("git tag -a dashboard_${tag_value}_${env.BUILD_NUMBER}  -m 'Jenkins'")
+     sh("git tag -a dashboard_${env.BUILD_NUMBER}  -m 'Jenkins'")
       sh('git push https://"${GIT_USERNAME}":"${GIT_PASSWORD}"@github.com/snyamars/wcw_micro_dashboard.git --tags')
   }
   
